@@ -9,6 +9,7 @@ import React from 'react';
 import styles from './styles.css';
 import validator from 'email-validator';
 import TextInput from '../TextInput';
+import classNames from 'classnames';
 
 class Login extends React.Component { // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
@@ -44,6 +45,7 @@ class Login extends React.Component { // eslint-disable-line react/prefer-statel
         </div>
 
         <TextInput
+          className={classNames(styles.input, { [styles.inputError]: this.state.errorText })}
           placeholder="Your email"
           ref={(f) => { this.emailField = f; }}
           errorText={this.state.errorText}
